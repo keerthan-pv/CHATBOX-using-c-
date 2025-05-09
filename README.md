@@ -1,74 +1,172 @@
-User & Product Management System
-This project implements a basic management system for users and products, including history tracking and a recommendation engine based on user activity. It uses hash tables for efficient data storage and retrieval.
+# 🧑‍💼🛒 User & Product Management System
 
-Features
+**Team Project**
 
-User and Product Management (Add, Get, Update)
+## 📌 Project Overview
 
-Browsing and Purchase History Tracking
+This project implements a basic management system in C for handling users and products, with the following capabilities:
+- **User and Product Management** (Add, Retrieve, Update)
+- **Browsing and Purchase History Tracking**
+- **Product Recommendation Engine** based on user activity
+- Uses **Hash Tables** for efficient lookup
+- Maintains a **History Matrix** to track user-product interactions
 
-Hashing for Quick Lookups
+---
 
-Product Recommendation Engine
+## 🚀 Features
 
-Function Overview
+- 🔹 Add, get, and update users and products
+- 🔹 Track browsing and purchasing activities
+- 🔹 Fast data access using hash functions
+- 🔹 Recommend products to users based on interaction history
 
-User Management
-Function	Purpose	Operation
-addUser(int userId, const char *name, const char *email)	Add a new user	Creates a User struct, hashes userId, and inserts into user table
-getUser(int userId)	Retrieve user	Hashes userId and returns the user
-updateUser(int userId, const char *name, const char *email)	Update user info	Gets the user by userId and updates name and email
+---
 
-Product Management
-Function	Purpose	Operation
-addProduct(int productId, const char *name, float price, int stock)	Add new product	Creates a Product struct, hashes productId, and inserts into product table
-getProduct(int productId)	Retrieve product	Hashes productId and returns the product
-updateProduct(int productId, float price, int stock)	Update product info	Gets the product by productId and updates price and stock
+## ⚙️ Function Overview
 
-Hashing Functions
-Function	Purpose	Operation
-hashUser(int userId)	Hash user ID	userId % MAX_USERS
-hashProduct(int productId)	Hash product ID	productId % MAX_PRODUCTS
+### 👤 User Management
 
-History Management
-Function	Purpose	Operation
-initHistoryGraph()	Initialize history graph	Sets all elements in adjacency matrix to 0
-recordBrowsingHistory(int userId, int productId)	Track product browse	Sets adjacencyMatrix[userId][productId] = 1
-recordPurchaseHistory(int userId, int productId)	Track product purchase	Sets adjacencyMatrix[userId][productId] = 2
-retrieveUserHistory(int userId)	Show user history	Loops over products and prints browse/purchase info
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `addUser(int userId, const char *name, const char *email)` | Add new user | Hash `userId` and insert into user table |
+| `getUser(int userId)` | Retrieve user | Hash `userId` and return matching user |
+| `updateUser(int userId, const char *name, const char *email)` | Update user info | Get user by `userId` and update info |
 
-Recommendation Engine
-Function	Purpose	Operation
-generateRecommendations(int userId)	Recommend products	Uses browsing and purchase history to suggest products
+### 📦 Product Management
 
-Main Program Workflow
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `addProduct(int productId, const char *name, float price, int stock)` | Add new product | Hash `productId` and insert into product table |
+| `getProduct(int productId)` | Retrieve product | Hash `productId` and return matching product |
+| `updateProduct(int productId, float price, int stock)` | Update product info | Get product and update price/stock |
 
-c
-Copy
-Edit
-main() {
-    initHistoryGraph();                       // Initialize history matrix
-    addUser(...);                             // Add user(s)
-    addProduct(...);                          // Add product(s)
-    recordBrowsingHistory(...);               // Log browsing history
-    recordPurchaseHistory(...);               // Log purchase history
-    retrieveUserHistory(...);                 // Print user activity
-    generateRecommendations(...);             // Show recommendations
-    updateUser(...);                          // Update user data
-    updateProduct(...);                       // Update product data
-    getUser(...); getProduct(...);            // Retrieve updated info
+### 🔢 Hashing Functions
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `hashUser(int userId)` | Hash user ID | `userId % MAX_USERS` |
+| `hashProduct(int productId)` | Hash product ID | `productId % MAX_PRODUCTS` |
+
+### 📚 History Management
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `initHistoryGraph()` | Initialize matrix | Set all cells to 0 |
+| `recordBrowsingHistory(int userId, int productId)` | Track browsing | Set matrix cell to 1 |
+| `recordPurchaseHistory(int userId, int productId)` | Track purchase | Set matrix cell to 2 |
+| `retrieveUserHistory(int userId)` | Show user activity | Print browsing/purchase history |
+# 🧑‍💼🛒 User & Product Management System
+
+**Team Project**
+
+## 📌 Project Overview
+
+This project implements a basic management system in C for handling users and products, with the following capabilities:
+- **User and Product Management** (Add, Retrieve, Update)
+- **Browsing and Purchase History Tracking**
+- **Product Recommendation Engine** based on user activity
+- Uses **Hash Tables** for efficient lookup
+- Maintains a **History Matrix** to track user-product interactions
+
+---
+
+## 🚀 Features
+
+- 🔹 Add, get, and update users and products
+- 🔹 Track browsing and purchasing activities
+- 🔹 Fast data access using hash functions
+- 🔹 Recommend products to users based on interaction history
+
+---
+
+## ⚙️ Function Overview
+
+### 👤 User Management
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `addUser(int userId, const char *name, const char *email)` | Add new user | Hash `userId` and insert into user table |
+| `getUser(int userId)` | Retrieve user | Hash `userId` and return matching user |
+| `updateUser(int userId, const char *name, const char *email)` | Update user info | Get user by `userId` and update info |
+
+### 📦 Product Management
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `addProduct(int productId, const char *name, float price, int stock)` | Add new product | Hash `productId` and insert into product table |
+| `getProduct(int productId)` | Retrieve product | Hash `productId` and return matching product |
+| `updateProduct(int productId, float price, int stock)` | Update product info | Get product and update price/stock |
+
+### 🔢 Hashing Functions
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `hashUser(int userId)` | Hash user ID | `userId % MAX_USERS` |
+| `hashProduct(int productId)` | Hash product ID | `productId % MAX_PRODUCTS` |
+
+### 📚 History Management
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `initHistoryGraph()` | Initialize matrix | Set all cells to 0 |
+| `recordBrowsingHistory(int userId, int productId)` | Track browsing | Set matrix cell to 1 |
+| `recordPurchaseHistory(int userId, int productId)` | Track purchase | Set matrix cell to 2 |
+| `retrieveUserHistory(int userId)` | Show user activity | Print browsing/purchase history |
+
+### 🤖 Recommendation Engine
+
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `generateRecommendations(int userId)` | Suggest products | Based on interaction history |
+
+---
+
+## 🔁 Main Program Workflow
+
+```c
+int main() {
+    initHistoryGraph();               // Initialize history tracking
+
+    addUser(...);                     // Add user(s)
+    addProduct(...);                  // Add product(s)
+
+    recordBrowsingHistory(...);       // Log user browsing
+    recordPurchaseHistory(...);       // Log user purchases
+
+    retrieveUserHistory(...);         // View history
+    generateRecommendations(...);     // Get recommendations
+
+    updateUser(...);                  // Update user details
+    updateProduct(...);               // Update product details
+
+    getUser(...); getProduct(...);    // Retrieve latest info
 }
-Technologies Used
 
-Programming Language: C
+### 🤖 Recommendation Engine
 
-Data Structures: Hash Tables, Adjacency Matrix
+| Function | Purpose | Operation |
+|---------|---------|-----------|
+| `generateRecommendations(int userId)` | Suggest products | Based on interaction history |
 
-Notes
+---
 
-Ensure MAX_USERS and MAX_PRODUCTS are defined appropriately for hashing.
+## 🔁 Main Program Workflow
 
-History matrix can be expanded to support additional actions or weights.
+```c
+int main() {
+    initHistoryGraph();               // Initialize history tracking
 
-The system can be extended with file I/O or database integration.
+    addUser(...);                     // Add user(s)
+    addProduct(...);                  // Add product(s)
 
+    recordBrowsingHistory(...);       // Log user browsing
+    recordPurchaseHistory(...);       // Log user purchases
+
+    retrieveUserHistory(...);         // View history
+    generateRecommendations(...);     // Get recommendations
+
+    updateUser(...);                  // Update user details
+    updateProduct(...);               // Update product details
+
+    getUser(...); getProduct(...);    // Retrieve latest info
+}
